@@ -10,10 +10,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
 </head>
-<body class="flex justify-center bg-sky-200">
+<body class="flex flex-col items-center bg-sky-200">
+
+    <!-- Username input-box -->
     <div class="w-2/5 m-10">
-        <h1 class="font-medium capitalize">{{config('app.name')}}</h1>
-        <form class="bg-neutral-50 p-5 rounded-lg" action="" method="get">
+        <h1 class="font-medium capitalize mb-2">{{config('app.name')}}</h1>
+        <form class="bg-neutral-50 p-5 rounded-lg" action="" method="post">
             @csrf
             <label for="username" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Username</label>
             <div class="flex">
@@ -27,5 +29,27 @@
             </div>
         </form>
     </div>
+
+    <!-- Article -->
+    @if (isset($articles))
+        <div class="w-2/5 m-5">
+            <h2 class="font-medium capitalize mb-2">article</h2>
+            @foreach ($articles as $article)
+                <a class="block bg-neutral-50 p-5 rounded-lg mb-5" href={{"http://zenn.dev".$article['path']}} target="_blank" rel="noopener noreferrer">
+                    <h3 class="font-medium text-lg mb-2">{{$article['emoji']}} {{$article['title']}}</h3>
+                    <p class="text-sm">
+                        <span class="mr-5">📝{{Str::substr($article['published_at'], 0, 10)}}</span>
+                        <span class="mr-5">🖊️{{$article['body_letters_count']}}</span>
+                        <span class="mr-5">🗨️{{$article['comments_count']}}</span>
+                        <span class="mr-5">🩷{{$article['liked_count']}}</span>
+                    </p>
+                </a>
+            @endforeach
+        </div>
+    @endif
+
+    <footer class="w-2/5 mb-10 flex justify-center">
+        <a href="http://portfolio.dainaka.live/" target="_blank" rel="noopener noreferrer">&copy 2023 DaiNaka</a>
+    </footer>
 </body>
 </html>
