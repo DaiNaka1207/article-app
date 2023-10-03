@@ -13,7 +13,7 @@
 <body class="flex flex-col items-center bg-sky-200">
 
     <!-- Username input-box -->
-    <div class="w-2/5 m-10">
+    <div class="w-full px-5 m-5 md:w-2/5 md:px-0 md:m-10">
         <h1 class="font-medium capitalize mb-2">{{config('app.name')}}</h1>
         <form class="bg-neutral-50 p-5 rounded-lg" action="" method="post">
             @csrf
@@ -25,14 +25,14 @@
                     </svg>
                 </span>
                 <input type="text" id="username" name="username" class="mr-3 rounded-none rounded-r-lg bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="dainaka" required>
-                <button type="submit" class="text-white bg-sky-700 hover:bg-sky-800 focus:ring-4 focus:outline-none focus:ring-sky-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-sky-600 dark:hover:bg-sky-700 dark:focus:ring-sky-800">表示</button>
+                <button type="submit" class="text-white bg-sky-700 hover:bg-sky-800 focus:ring-4 focus:outline-none focus:ring-sky-300 font-medium rounded-lg text-sm w-auto px-5 py-2.5 text-center dark:bg-sky-600 dark:hover:bg-sky-700 dark:focus:ring-sky-800">表示</button>
             </div>
         </form>
     </div>
 
     <!-- Article -->
     @if (isset($articles))
-        <div class="w-2/5 m-5">
+        <div class="w-full px-5 m-3 md:w-2/5 md:px-0 md:m-5">
             <h2 class="font-medium capitalize mb-2">article</h2>
             @foreach ($articles as $article)
                 <a class="block bg-neutral-50 p-5 rounded-lg mb-5" href={{"http://zenn.dev".$article['path']}} target="_blank" rel="noopener noreferrer">
