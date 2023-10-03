@@ -26,8 +26,18 @@ class ArticleController extends Controller
             $articles = $resp['articles'];
             // dd($articles);
 
-            // articles変数をarticlesという名前でtopビューへ渡して表示
-            return view('top', ['articles' => $articles]);
+            // Zennで記事一覧を取得して$resp変数へ代入
+            $resp = Http::get('https://zenn.dev/api/scraps?username='.$request->username.'&order=latest');
+
+            // 取得した記事をJson形式に変換して$resp変数に代入
+            $resp = $resp->json();
+
+            // 取得した記事の'scrap'オブジェクトを$scraps変数に代入
+            $scraps = $resp['scraps'];
+            // dd($scraps);
+
+            // 変数をそのままの名前でtopビューへ渡して表示
+            return view('top', ['articles' => $articles, 'scraps' => $scraps]);
 
         } else {
 

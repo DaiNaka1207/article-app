@@ -47,6 +47,24 @@
             @endforeach
         </div>
     @endif
+    
+    <!-- Scrap -->
+    @if (isset($scraps))
+        <div class="w-full px-5 m-3 md:w-2/5 md:px-0 md:m-5">
+            <h2 class="font-medium capitalize mb-2">scrap</h2>
+            @foreach ($scraps as $scrap)
+                <a class="block bg-neutral-50 p-5 rounded-lg mb-5" href={{"http://zenn.dev".$scrap['path']}} target="_blank" rel="noopener noreferrer">
+                    <h3 class="font-medium text-lg mb-2">{{$scrap['title']}}</h3>
+                    <p class="text-sm">
+                        <span class="mr-5">📝{{Str::substr($scrap['created_at'], 0, 10)}}</span>
+                        <span class="mr-5">🔄️{{Str::substr($scrap['last_comment_created_at'], 0, 10)}}</span>
+                        <span class="mr-5">🗨️{{$scrap['comments_count']}}</span>
+                        <span class="mr-5">🩷{{$scrap['liked_count']}}</span>
+                    </p>
+                </a>
+            @endforeach
+        </div>
+    @endif
 
     <footer class="w-2/5 mb-10 flex justify-center">
         <a href="https://portfolio.dainaka.live/" target="_blank" rel="noopener noreferrer">&copy 2023 DaiNaka</a>
