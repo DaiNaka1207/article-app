@@ -49,7 +49,7 @@
     @endif
 
     <footer class="w-2/5 mb-10 flex justify-center">
-        <a href="http://portfolio.dainaka.live/" target="_blank" rel="noopener noreferrer">&copy 2023 DaiNaka</a>
+        <a href="https://portfolio.dainaka.live/" target="_blank" rel="noopener noreferrer">&copy 2023 DaiNaka</a>
     </footer>
 </body>
 </html>
